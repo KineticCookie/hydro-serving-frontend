@@ -1,0 +1,9 @@
+<span>Repository index</span>
+<div class="row">
+    <div *ngFor="let model of models let i = index">
+        <div class="clearfix" *ngIf="i % 2 == 0"></div>
+        <div class="col s12 m6">
+            <app-ml-model [model]="model"></app-ml-model>
+        </div>
+    </div>
+</div>

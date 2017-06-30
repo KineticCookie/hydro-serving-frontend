@@ -1,0 +1,9 @@
+<span>Pipelines index</span>
+<div class="row">
+    <div *ngFor="let pipeline of pipelines let i = index">
+        <div class="clearfix" *ngIf="i % 2 == 0"></div>
+        <div class="col s12 m6">
+            <app-ml-pipeline-compact [pipeline]="pipeline"></app-ml-pipeline-compact>
+        </div>
+    </div>
+</div>

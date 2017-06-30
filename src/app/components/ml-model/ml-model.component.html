@@ -1,0 +1,22 @@
+<div class="card small blue-grey darken-1">
+    <div class="card-content white-text">
+        <span class="card-title">{{model.name}}</span>
+        <div class="card-stacked">
+            <span>{{model.runtime}}</span>
+            <span *ngIf="model.attachedRuntime">{{model.attachedRuntime}}</span>
+            <span><b>Inputs:</b> {{model.inputs.join(' ,')}}</span>
+            <span><b>Outputs:</b> {{model.outputs.join(' ,')}}</span>
+        </div>
+        <div *ngIf="selectRuntime" class="input-field">
+                <select 
+                [(ngModel)]="run" 
+                (ngModelChange)="change($event)"
+                materialize="material_select" 
+                [materializeSelectOptions]="options">
+                    <option *ngFor="let rr of runtimes" [ngValue]="rr.toString()">
+                        {{rr.toString()}}
+                    </option>
+                </select>
+            </div>
+    </div>
+</div>

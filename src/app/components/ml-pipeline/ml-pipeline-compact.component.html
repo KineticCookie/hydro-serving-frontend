@@ -1,0 +1,14 @@
+<div class="card horizontal blue lighten-3">
+    <div class="card-content white-text">
+        <span class="card-title">{{pipeline.name}}</span>
+        <div class="card-stacked">
+            <div>
+                <span><b>Models:</b></span>
+                <span *ngFor="let stage of pipeline.stages">{{stage.name}}</span>
+            </div>
+        </div>
+        <div class="card-action">
+            <a [routerLink]="['/pipeline', pipeline.name]" >Details</a>
+        </div>
+    </div>
+</div>

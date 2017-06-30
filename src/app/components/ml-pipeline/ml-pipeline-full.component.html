@@ -1,0 +1,41 @@
+<h3>{{pipeline.name}}</h3>
+<div class="row">
+    <h4>Models:</h4>
+    <div *ngFor="let model of pipeline.stages">
+        <div class="col s12 m6">
+            <app-ml-model [model]="model"></app-ml-model>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <h4>Input:</h4>
+    <div>
+        <ng2-smart-table [settings]="inputSettings" [source]="inputData"></ng2-smart-table>
+    </div>
+</div>
+<div class="row">
+    <h4>Output:</h4>
+    <div>
+        <ng2-smart-table [settings]="outputSettings" [source]="outputData"></ng2-smart-table>
+    </div>
+</div>
+
+<div class="fixed-action-btn horizontal">
+    <a *ngIf="!servingInProcess" (click)="executePipeline()" class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <div *ngIf="servingInProcess" class="preloader-wrapper active">
+        <div class="spinner-layer spinner-red-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
